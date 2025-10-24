@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: resume-matcher-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: resume_matcher
+    volumes:
+      - mongodb_data:/data/db
+      - ./sample_data/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - resume-matcher-network
+
+  # ML Service (FastAPI)
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: resume-matcher-ml-service
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MONGODB_URL=mongodb://admin:password123@mongodb:27017/resume_matcher?authSource=admin
+    volumes:
+      - ml_models:/app/models
+      - ./sample_data:/app/sample_data:ro
+    depends_on:
+      - mongodb
+    networks:
+      - resume-matcher-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Backend Service (Spring Boot)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: resume-matcher-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://admin:password123@mongodb:27017/resume_matcher?authSource=admin
+      - ML_SERVICE_URL=http://ml-service:8000
+    volumes:
+      - backend_uploads:/app/uploads
+    depends_on:
+      - mongodb
+      - ml-service
+    networks:
+      - resume-matcher-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Frontend Service (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: resume-matcher-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+      - REACT_APP_ML_SERVICE_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - resume-matcher-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  mongodb_data:
+    driver: local
+  ml_models:
+    driver: local
+  backend_uploads:
+    driver: local
+
+networks:
+  resume-matcher-network:
+    driver: bridge

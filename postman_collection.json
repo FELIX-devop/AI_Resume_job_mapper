@@ -1,0 +1,346 @@
+{
+  "info": {
+    "name": "AI Resume-Job Matching API",
+    "description": "Complete API collection for testing the AI Resume-Job Matching System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Checks",
+      "item": [
+        {
+          "name": "Backend Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "health"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ML Service Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Resume Management",
+      "item": [
+        {
+          "name": "Upload Resume",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "jobText",
+                  "value": "We are looking for a Senior Full Stack Developer with 5+ years of experience in React, Node.js, Python, and MongoDB. The ideal candidate should have experience with cloud platforms like AWS and modern development practices including CI/CD, microservices architecture, and agile methodologies.",
+                  "type": "text"
+                },
+                {
+                  "key": "domain",
+                  "value": "Fullstack",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/uploadResume",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "uploadResume"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Resume by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/resumes/{{resumeId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "resumes", "{{resumeId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Resumes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/resumes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "resumes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Resumes by Domain",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/resumes/domain/Fullstack",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "resumes", "domain", "Fullstack"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Job Management",
+      "item": [
+        {
+          "name": "Create Job",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior Full Stack Developer\",\n  \"company\": \"TechCorp Inc.\",\n  \"location\": \"San Francisco, CA\",\n  \"domain\": \"Fullstack\",\n  \"jobText\": \"We are looking for a Senior Full Stack Developer with 5+ years of experience in React, Node.js, Python, and MongoDB. The ideal candidate should have experience with cloud platforms like AWS and modern development practices including CI/CD, microservices architecture, and agile methodologies.\",\n  \"requiredSkills\": [\"React\", \"Node.js\", \"Python\", \"MongoDB\", \"AWS\", \"Docker\", \"Kubernetes\", \"REST API\", \"GraphQL\", \"TypeScript\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "jobs"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "jobs"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Job by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/jobs/{{jobId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "jobs", "{{jobId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Jobs by Domain",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/jobs/domain/Fullstack",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "jobs", "domain", "Fullstack"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Jobs by Title",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/jobs/search?title=Developer",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "jobs", "search"],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Developer"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ML Service",
+      "item": [
+        {
+          "name": "Evaluate Resume (Text)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "resume_text",
+                  "value": "Software Engineer with 5 years of experience in Python, React, and MongoDB. Bachelor's degree in Computer Science.",
+                  "type": "text"
+                },
+                {
+                  "key": "job_text",
+                  "value": "We are looking for a Full Stack Developer with experience in Python, React, and MongoDB. 3+ years of experience required.",
+                  "type": "text"
+                },
+                {
+                  "key": "domain",
+                  "value": "Fullstack",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8000/evaluate",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["evaluate"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Evaluate Resume (File)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "job_text",
+                  "value": "We are looking for a Full Stack Developer with experience in Python, React, and MongoDB. 3+ years of experience required.",
+                  "type": "text"
+                },
+                {
+                  "key": "domain",
+                  "value": "Fullstack",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8000/evaluate",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["evaluate"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Train Models",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/train",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["train"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Available Models",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/models",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["models"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "resumeId",
+      "value": "sample-resume-id",
+      "type": "string"
+    },
+    {
+      "key": "jobId",
+      "value": "sample-job-id",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "skills": {
+    "programming_languages": [
+      "Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "Go", "Rust", "PHP", "Ruby", "Swift", "Kotlin", "Scala", "R", "MATLAB"
+    ],
+    "web_frameworks": [
+      "React", "Angular", "Vue.js", "Node.js", "Express", "Django", "Flask", "FastAPI", "Spring Boot", "ASP.NET", "Laravel", "Ruby on Rails"
+    ],
+    "databases": [
+      "MongoDB", "PostgreSQL", "MySQL", "SQLite", "Redis", "Elasticsearch", "Cassandra", "DynamoDB", "Neo4j", "InfluxDB"
+    ],
+    "cloud_platforms": [
+      "AWS", "Azure", "Google Cloud Platform", "DigitalOcean", "Heroku", "Vercel", "Netlify", "Cloudflare"
+    ],
+    "devops_tools": [
+      "Docker", "Kubernetes", "Jenkins", "GitLab CI", "GitHub Actions", "Terraform", "Ansible", "Puppet", "Chef", "Prometheus", "Grafana", "ELK Stack"
+    ],
+    "data_science": [
+      "TensorFlow", "PyTorch", "scikit-learn", "pandas", "numpy", "matplotlib", "seaborn", "Jupyter", "Apache Spark", "Hadoop", "Kafka"
+    ],
+    "mobile_development": [
+      "React Native", "Flutter", "iOS", "Android", "Xamarin", "Ionic", "Cordova"
+    ],
+    "testing": [
+      "Jest", "Cypress", "Selenium", "Pytest", "JUnit", "Mocha", "Chai", "Postman", "Newman"
+    ],
+    "version_control": [
+      "Git", "GitHub", "GitLab", "Bitbucket", "SVN", "Mercurial"
+    ],
+    "operating_systems": [
+      "Linux", "Windows", "macOS", "Unix", "Ubuntu", "CentOS", "Red Hat"
+    ],
+    "soft_skills": [
+      "Agile", "Scrum", "Kanban", "Leadership", "Communication", "Problem Solving", "Team Collaboration", "Project Management", "Time Management"
+    ]
+  },
+  "job_titles": {
+    "software_engineering": [
+      "Software Engineer", "Senior Software Engineer", "Principal Software Engineer", "Staff Software Engineer",
+      "Full Stack Developer", "Frontend Developer", "Backend Developer", "Mobile Developer", "Game Developer"
+    ],
+    "data_science": [
+      "Data Scientist", "Senior Data Scientist", "Data Analyst", "Machine Learning Engineer", "AI Engineer",
+      "Data Engineer", "Business Intelligence Analyst", "Research Scientist"
+    ],
+    "cloud_devops": [
+      "DevOps Engineer", "Site Reliability Engineer", "Cloud Engineer", "Infrastructure Engineer",
+      "Platform Engineer", "Release Engineer", "Automation Engineer"
+    ],
+    "management": [
+      "Engineering Manager", "Technical Lead", "Product Manager", "Project Manager", "Scrum Master",
+      "Team Lead", "Architecture Lead", "CTO", "VP Engineering"
+    ]
+  },
+  "education_levels": [
+    "High School", "Associate Degree", "Bachelor's Degree", "Master's Degree", "PhD", "Bootcamp", "Certification", "Self-taught"
+  ],
+  "experience_levels": [
+    "Entry Level (0-2 years)", "Mid Level (3-5 years)", "Senior Level (6-10 years)", "Principal Level (10+ years)"
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "info": {
+    "name": "AI Resume-Job Matching API",
+    "description": "REST API for AI-powered resume and job matching system",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "email": "support@resumematcher.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string"},
+                    "service": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/uploadResume": {
+      "post": {
+        "summary": "Upload and analyze resume",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Resume file (PDF, DOCX, TXT)"
+                  },
+                  "jobText": {
+                    "type": "string",
+                    "description": "Job description text"
+                  },
+                  "domain": {
+                    "type": "string",
+                    "enum": ["Fullstack", "Cloud", "Data", "DevOps"],
+                    "description": "Job domain"
+                  }
+                },
+                "required": ["file", "jobText", "domain"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resume analyzed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resume"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/resumes/{id}": {
+      "get": {
+        "summary": "Get resume by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resume found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resume"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resume not found"
+          }
+        }
+      }
+    },
+    "/api/resumes": {
+      "get": {
+        "summary": "List all resumes",
+        "responses": {
+          "200": {
+            "description": "List of resumes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Resume"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs": {
+      "get": {
+        "summary": "List all jobs",
+        "responses": {
+          "200": {
+            "description": "List of jobs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Job"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new job",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Job"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Job created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Resume": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "fileName": {"type": "string"},
+          "rawText": {"type": "string"},
+          "domain": {"type": "string"},
+          "createdAt": {"type": "string", "format": "date-time"},
+          "parsedEntities": {
+            "type": "object",
+            "properties": {
+              "skills": {"type": "array", "items": {"type": "string"}},
+              "jobTitles": {"type": "array", "items": {"type": "string"}},
+              "companies": {"type": "array", "items": {"type": "string"}},
+              "education": {"type": "array", "items": {"type": "string"}},
+              "experienceYears": {"type": "integer"}
+            }
+          },
+          "evaluationResult": {
+            "type": "object",
+            "properties": {
+              "similarityScores": {"type": "object"},
+              "skillMatchRatio": {"type": "number"},
+              "experienceMatchRatio": {"type": "number"},
+              "educationMatchRatio": {"type": "number"},
+              "finalScore": {"type": "number"},
+              "bestModelName": {"type": "string"},
+              "matchedSkills": {"type": "array", "items": {"type": "string"}},
+              "missingSkills": {"type": "array", "items": {"type": "string"}},
+              "recommendation": {"type": "string"}
+            }
+          }
+        }
+      },
+      "Job": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "company": {"type": "string"},
+          "location": {"type": "string"},
+          "domain": {"type": "string"},
+          "jobText": {"type": "string"},
+          "requiredSkills": {"type": "array", "items": {"type": "string"}},
+          "createdAt": {"type": "string", "format": "date-time"}
+        }
+      }
+    }
+  }
+}

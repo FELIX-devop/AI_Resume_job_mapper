@@ -1,0 +1,6 @@
+resume_text,job_text,skill_match,exp_match,label
+"Software Engineer with 5 years of experience in Python, React, and MongoDB. Bachelor's degree in Computer Science.","We are looking for a Full Stack Developer with experience in Python, React, and MongoDB. 3+ years of experience required.",0.8,0.9,1
+"Data Scientist with 3 years of experience in Python, TensorFlow, and SQL. Master's degree in Statistics.","Join our data science team to build machine learning models. We need Python, TensorFlow, and SQL skills.",0.9,0.7,1
+"DevOps Engineer with 4 years of experience in AWS, Docker, and Kubernetes.","We are hiring a DevOps Engineer to manage infrastructure. Expertise in AWS, Docker, and Kubernetes required.",0.85,0.8,1
+"Frontend Developer with 2 years of experience in JavaScript and HTML.","We need a Senior Full Stack Developer with 5+ years of experience in React and Node.js.",0.3,0.4,0
+"Cloud Architect with 6 years of experience in Azure and Terraform.","Looking for a Cloud Solutions Architect with AWS and Kubernetes expertise.",0.4,0.8,0
