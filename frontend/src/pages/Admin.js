@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart3, Users, FileText, TrendingUp, Upload, Download } from 'lucide-react';
+import { BarChart3, Users, FileText, TrendingUp, Upload, Download, Briefcase } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 

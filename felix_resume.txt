@@ -1,0 +1,58 @@
+FELIX ANTONY P
+Proactive Java Full-Stack Developer
+Email: felixantonyoffcl@gmail.com
+Phone: +91 8148654462
+Location: Thiruvarur
+
+SUMMARY:
+Proactive Java Full-Stack Developer with a strong foundation in Spring Boot, Neo4j, and modern web technologies. Eager to contribute to your organization's growth by delivering efficient, scalable, and secure solutions. Ready to boost development speed and team productivity through clean code and collaborative problem-solving.
+
+EDUCATION:
+St. Joseph's College of Engineering
+B.E. in Computer Science and Engineering (May 2022 - May 2026)
+Cumulative GPA: 7.21 / 10
+Chennai, TN
+
+Sowdambikaa group of schools
+Computer science top scorer (May 2021 - May 2022)
+Score: 74.6
+Thuraiyur, TN
+
+EXPERIENCE:
+Backend Developer Intern — SkillFirst Applied Labs (May 2025 - Present, Chennai, India)
+- Engineered RESTful APIs using Spring Boot and Neo4j, improving skill-job mapping performance by 45%
+- Implemented secure authentication/authorization with Spring Security and JWT, reducing unauthorized access by 70%
+- Optimized data processing with Cypher queries and indexing, reducing analytics execution time by 50%
+- Gained experience in GitHub-based version control and team collaboration
+
+PROJECTS:
+Skill Intelligence (Internship Project)
+Technologies: Spring Boot, Neo4j, JWT, REST API
+- Developed a scalable backend for skill-job relationship mapping using Spring Boot and Neo4j
+- Implemented JWT-based authentication
+- Optimized Cypher queries for system responsiveness
+
+Maze the Ace (Job-Matching Platform)
+Technologies: Spring Boot, React.js, Twilio API, REST API
+- Developed a full-stack job portal using Spring Boot (backend) and React.js (frontend)
+- Integrated Twilio API for real-time SMS job alerts
+- Streamlined search and filtering mechanisms
+
+DREACON (Social Media Deepfake Detection Service)
+Technologies: React.js, Spring Boot, MongoDB, REST API
+- Developed a responsive interface with React.js and Spring Boot
+- Integrated backend with an ML Python service via REST APIs for deepfake detection
+- Designed and implemented MongoDB schema for user authentication
+
+TECHNICAL SKILLS:
+Languages and Databases: Java, C, JavaScript, HTML5, CSS3, MongoDB, Neo4j, PostgreSQL, MySQL, H2 Database
+Frameworks and Tools: Spring Boot, Spring Security, React.js, Bootstrap, Swagger, Postman, Figma, Git, GitHub, Photoshop, Maven, Gradle
+
+CERTIFICATIONS:
+- Meta Front-End Development — Coursera
+- Programming in Java (Elite) — NPTEL
+- Fundamentals of OOPS (Elite) — NPTEL
+- Introduction to MongoDB — MongoDB University
+
+HOBBIES:
+Vibe coding, puzzle and strategy games, fitness training, exploring new technologies

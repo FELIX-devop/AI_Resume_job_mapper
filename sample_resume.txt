@@ -1,0 +1,25 @@
+John Doe
+Software Engineer
+Email: john.doe@email.com
+Phone: (555) 123-4567
+
+EXPERIENCE:
+Senior Software Engineer at TechCorp (2020-2024)
+- Developed web applications using React, Node.js, and Python
+- Managed databases and implemented REST APIs
+- Led a team of 3 developers
+
+Software Developer at StartupXYZ (2018-2020)
+- Built full-stack applications using JavaScript and Python
+- Worked with MySQL and MongoDB databases
+- Implemented CI/CD pipelines
+
+SKILLS:
+- Programming Languages: Python, JavaScript, Java, SQL
+- Frameworks: React, Node.js, Express, Django
+- Databases: MySQL, MongoDB, PostgreSQL
+- Tools: Git, Docker, AWS, Jenkins
+
+EDUCATION:
+Bachelor of Science in Computer Science
+University of Technology (2014-2018)

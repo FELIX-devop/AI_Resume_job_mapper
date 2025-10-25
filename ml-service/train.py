@@ -198,7 +198,14 @@ def train_models():
     
     # Save training results
     with open(models_dir / "training_results.json", 'w') as f:
-        json.dump(results, f, indent=2)
+        # Convert numpy types to Python types for JSON serialization
+        json_results = {}
+        for name, result in results.items():
+            json_results[name] = {
+                'accuracy': float(result['accuracy']),
+                'feature_importance': {k: float(v) for k, v in result['feature_importance'].items()}
+            }
+        json.dump(json_results, f, indent=2)
     
     # Save training data for reference
     df.to_csv(models_dir / "training_data.csv", index=False)
